@@ -13,6 +13,15 @@ public class Field {
     private boolean marked;
 
     private List<Field> neighbors = new ArrayList<>();
+    private List<FieldObserver> observers = new ArrayList<>();
+
+    public void registerObserver(FieldObserver observer) {
+        observers.add(observer);
+    }
+
+    private void notifyObservers(FieldEvent event) {
+        observers.stream().forEach(o -> o.eventOccurred(this, event));
+    }
 
     Field(int row, int column) {
         this.row = row;
@@ -42,16 +51,24 @@ public class Field {
     void rotateTag() {
         if(!opened) {
             marked = !marked;
+
+            if(marked) {
+                notifyObservers(FieldEvent.MARK);
+            } else {
+                notifyObservers(FieldEvent.UNMARK);
+            }
         }
     }
 
     boolean open() {
         if(!opened && !marked) {
-            opened = true;
 
             if(mined) {
-                //TODO: implement new version
+                notifyObservers(FieldEvent.EXPLODE);
+                return true;
             }
+
+            setOpen(true);
 
             if(secureNeihborhood()) {
                 neighbors.forEach(n -> n.open());
@@ -80,6 +97,10 @@ public class Field {
 
     void setOpen(boolean opened) {
         this.opened = opened;
+
+        if(opened) {
+            notifyObservers(FieldEvent.OPEN);
+        }
     }
 
     public boolean isOpen() {
