@@ -2,16 +2,18 @@ package br.com.cod3r.mw.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 
-public class Board {
+public class Board implements FieldObserver {
 
     private int rows;
     private int columns;
     private int mines;
 
     private final List<Field> fields = new ArrayList<>();
+    private final List<Consumer<EventResult>> observers = new ArrayList<>();
 
     public Board(int rows, int columns, int mines) {
         this.rows = rows;
@@ -23,17 +25,19 @@ public class Board {
         drawMines();
     }
 
+    public void registerObserver(Consumer<EventResult> observer) {
+        observers.add(observer);
+    }
+
+    public void notifyObservers(boolean result) {
+        observers.stream().forEach(o -> o.accept(new EventResult(result)));
+    }
+
     public void open(int row, int column) {
-        try {
-            fields.stream()
-                    .filter(f -> f.getRow() == row && f.getColumn() == column)
-                    .findFirst()
-                    .ifPresent(f -> f.open());
-        } catch (Exception e) {
-            //FIXME: ajustar implementação do método abrir
-            fields.forEach(f -> f.setOpen(true));
-            throw e;
-        }
+        fields.stream()
+                .filter(f -> f.getRow() == row && f.getColumn() == column)
+                .findFirst()
+                .ifPresent(f -> f.open());
     }
 
     public void rotateTag(int row, int column) {
@@ -46,7 +50,9 @@ public class Board {
     private void generateFields() {
         for (int l = 0; l < rows; l++) {
             for (int c = 0; c < columns; c++) {
-                fields.add(new Field(l, c));
+                Field field = new Field(l, c);
+                field.registerObserver(this);
+                fields.add(field);
             }
         }
     }
@@ -77,5 +83,21 @@ public class Board {
     public void restart() {
         fields.stream().forEach(f -> f.restart());
         drawMines();
+    }
+
+    @Override
+    public void eventOccurred(Field field, FieldEvent event) {
+        if(event == FieldEvent.EXPLODE) {
+            showMines();
+            notifyObservers(false);
+        } else if(objectiveAchieved()) {
+            notifyObservers(true);
+        }
+    }
+
+    private void showMines() {
+        fields.stream()
+                .filter(f -> f.isMined())
+                .forEach(f -> f.setOpen(true));
     }
 }
