@@ -110,6 +110,7 @@ public class Board implements FieldObserver {
     private void showMines() {
         fields.stream()
                 .filter(f -> f.isMined())
+                .filter(f -> !f.isMarked())
                 .forEach(f -> f.setOpen(true));
     }
 }

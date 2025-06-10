@@ -21,6 +21,7 @@ public class FieldButton extends JButton implements FieldObserver, MouseListener
     public FieldButton(Field field) {
         this.field = field;
         setBackground(BG_STANDARD);
+        setOpaque(true);
         setBorder(BorderFactory.createBevelBorder(0));
 
         addMouseListener(this);
@@ -45,17 +46,32 @@ public class FieldButton extends JButton implements FieldObserver, MouseListener
     }
 
     private void applyDefaultStyle() {
+        setBackground(BG_STANDARD);
+        setText("");
     }
 
     private void applyExplodeStyle() {
+        setBackground(BG_EXPLOSION);
+        setForeground(Color.WHITE);
+        setText("X");
     }
 
     private void applyMarkStyle() {
+        setBackground(BG_MARKED);
+        setForeground(Color.BLACK);
+        setText("M");
     }
 
     private void applyOpenStyle() {
-        setBackground(BG_STANDARD);
+
         setBorder(BorderFactory.createLineBorder(Color.GRAY));
+
+        if(field.isMined()) {
+            setBackground(BG_EXPLOSION);
+            return;
+        }
+
+        setBackground(BG_STANDARD);
 
         switch (field.minesInTheNeighborhood()) {
             case 1:
