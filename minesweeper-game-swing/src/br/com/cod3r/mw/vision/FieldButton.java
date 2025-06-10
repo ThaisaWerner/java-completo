@@ -43,10 +43,16 @@ public class FieldButton extends JButton implements FieldObserver, MouseListener
             default:
                 applyDefaultStyle();
         }
+
+        SwingUtilities.invokeLater(() -> {
+            repaint();
+            validate();
+        });
     }
 
     private void applyDefaultStyle() {
         setBackground(BG_STANDARD);
+        setBorder(BorderFactory.createBevelBorder(0));
         setText("");
     }
 
