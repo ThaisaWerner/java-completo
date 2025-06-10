@@ -48,7 +48,7 @@ public class Field {
         }
     }
 
-    void rotateTag() {
+    public void rotateTag() {
         if(!opened) {
             marked = !marked;
 
@@ -60,7 +60,7 @@ public class Field {
         }
     }
 
-    boolean open() {
+    public boolean open() {
         if(!opened && !marked) {
 
             if(mined) {
@@ -79,7 +79,7 @@ public class Field {
         }
     }
 
-    boolean secureNeihborhood() {
+    public boolean secureNeihborhood() {
         return neighbors.stream().noneMatch(n -> n.mined);
     }
 
@@ -125,8 +125,8 @@ public class Field {
         return unveiled || secured;
     }
 
-    long minesInTheNeighborhood() {
-        return neighbors.stream()
+    public int minesInTheNeighborhood() {
+        return (int) neighbors.stream()
                 .filter(n -> n.mined)
                 .count();
     }
