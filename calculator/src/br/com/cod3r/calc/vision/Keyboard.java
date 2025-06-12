@@ -1,5 +1,7 @@
 package br.com.cod3r.calc.vision;
 
+import br.com.cod3r.calc.model.Memory;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -67,7 +69,7 @@ public class Keyboard extends JPanel implements ActionListener {
         //checks whether the source of the event (the component that triggered the action) is an instance of JButton.
         if(event.getSource() instanceof JButton) {
             JButton button = (JButton) event.getSource(); // Getting the button that was clicked. The click source.
-            System.out.println(button.getText()); // Printing the text of the button to the console.
+            Memory.getInstance().proccessInput(button.getText()); // Processing the input from the button and updating the memory.
         }
 
     }
