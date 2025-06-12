@@ -1,5 +1,7 @@
 package br.com.cod3r.calc.vision;
 
+import br.com.cod3r.calc.model.Memory;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,7 +12,7 @@ public class Display extends JPanel {
 
     public Display() {
         setBackground(new Color(46, 49, 50));
-        label = new JLabel("0");
+        label = new JLabel(Memory.getInstance().getCurrentText());
         label.setForeground(Color.WHITE);
         label.setFont(new Font("Courier", Font.PLAIN, 24));
 

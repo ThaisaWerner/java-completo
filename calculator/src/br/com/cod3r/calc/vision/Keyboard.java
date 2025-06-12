@@ -2,9 +2,12 @@ package br.com.cod3r.calc.vision;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 // JPanel is a Swing component that can be used to create a panel for the calculator keyboard.
-public class Keyboard extends JPanel {
+// ActionListener is an interface that receives action events, such as button clicks.
+public class Keyboard extends JPanel implements ActionListener {
 
     private final Color DARK_PINK = new Color(255, 175, 204);
     private final Color LIGHT_PINK = new Color(255, 200, 221);
@@ -54,6 +57,18 @@ public class Keyboard extends JPanel {
         constraints.gridx = x;
         constraints.gridy = y;
         Button button = new Button(text, color);
+        button.addActionListener(this); // Registering the action listener to handle button clicks. Here will happen what is in the actionPerformed method.
         add(button, constraints);
+    }
+
+    // This method will handle button click events.
+    @Override
+    public void actionPerformed(ActionEvent event) {
+        //checks whether the source of the event (the component that triggered the action) is an instance of JButton.
+        if(event.getSource() instanceof JButton) {
+            JButton button = (JButton) event.getSource(); // Getting the button that was clicked. The click source.
+            System.out.println(button.getText()); // Printing the text of the button to the console.
+        }
+
     }
 }
