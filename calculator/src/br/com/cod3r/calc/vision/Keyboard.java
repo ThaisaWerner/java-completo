@@ -17,8 +17,13 @@ public class Keyboard extends JPanel {
 
         setLayout(layout);
 
-        addButton("AC", DARK_PINK, constraints, 0, 0);
-        addButton("+/-", DARK_PINK, constraints, 1, 0);
+        constraints.weightx = 1;
+        constraints.weighty = 1; // Each button will take up equal space in the grid
+        constraints.fill = GridBagConstraints.BOTH; // Fill the cell in both directions
+
+        constraints.gridwidth = 1;
+        addButton("C", DARK_PINK, constraints, 0, 0);
+        addButton("+", DARK_PINK, constraints, 1, 0);
         addButton("%", DARK_PINK, constraints, 2, 0);
         addButton("/", PURPLE, constraints, 3, 0);
 
@@ -37,8 +42,9 @@ public class Keyboard extends JPanel {
         addButton("3", LIGHT_PINK, constraints, 2, 3);
         addButton("+", PURPLE, constraints, 3, 3);
 
+        constraints.gridwidth = 2;
         addButton("0", LIGHT_PINK, constraints, 0, 4);
-        addButton("0", LIGHT_PINK, constraints, 1, 4);
+        constraints.gridwidth = 1;
         addButton(",", LIGHT_PINK, constraints, 2, 4);
         addButton("=", PURPLE, constraints, 3, 4);
     }

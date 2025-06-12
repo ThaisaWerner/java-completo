@@ -7,7 +7,7 @@ public class Button extends JButton {
 
     public Button(String text, Color color) {
         setText(text);
-        setFont(new Font("Courier", Font.PLAIN, 24));
+        setFont(new Font("Courier", Font.PLAIN, 16));
         setOpaque(true);
         setBackground(color);
         setForeground(Color.GRAY);
