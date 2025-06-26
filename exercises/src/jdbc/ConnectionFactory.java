@@ -8,7 +8,7 @@ public class ConnectionFactory {
 
     public static Connection getConnection() {
         try {
-            String url = "jdbc:mysql://localhost:3307?verifyServerCertificate=false&useSSL=true";
+            String url = "jdbc:mysql://localhost:3307/java_course?verifyServerCertificate=false&useSSL=true";
             String user = "root";
             String password = "@Thai1995";
 
