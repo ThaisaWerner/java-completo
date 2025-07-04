@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="exercises-jpa">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <mapping-file>META-INF/consultas.xml</mapping-file>
+
+        <properties>
+            <!-- Driver utilizado para conectar com o mysql -->
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.jdbc.Driver"/>
+            <!-- URL utilizada -->
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost/curso_java"/>
+            <!-- Usuário utilizado -->
+            <property name="javax.persistence.jdbc.user"
+                      value="root"/>
+            <!-- Senha utilizada -->
+            <property name="javax.persistence.jdbc.password"
+                      value="@Thai1995"/>
+
+            <property name="hibernate.dialect"
+                      value="org.hibernate.dialect.MySQL57Dialect"/>
+            <!-- Mostra o sql no console -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <!-- Cria automaticamente as tabelas -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
