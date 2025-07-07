@@ -22,7 +22,7 @@ public class NewUser {
         User user1 = new User("Leo", "leo@lanche.com.br");
         //user.setId(1L);
 
-        //Creates a transactional channel to persist the user in the database
+        //Creates a transactional channel to persist the user in the database, only for insertion
         entityManager.getTransaction().begin();
         entityManager.persist(user);
         entityManager.persist(user1);
