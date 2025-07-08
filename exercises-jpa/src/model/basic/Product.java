@@ -1,6 +1,7 @@
 package model.basic;
 
 import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Entity
 @Table(name = "products")
