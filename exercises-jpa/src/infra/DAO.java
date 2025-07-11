@@ -48,6 +48,10 @@ public class DAO<E> {
         return this.openTransaction().insert(entity).closeTransaction();
     }
 
+    public E getByID(Object id) {
+        return entityManager.find(classy, id);
+    }
+
     public List<E> getAll() {
         return this.getAll(10, 0);
     }
