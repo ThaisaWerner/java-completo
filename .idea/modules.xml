@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/calc-app/calc-app.iml" filepath="$PROJECT_DIR$/calc-app/calc-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/calculator/calculator.iml" filepath="$PROJECT_DIR$/calculator/calculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/exercises/exercises.iml" filepath="$PROJECT_DIR$/exercises/exercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/financial-app/financial-app.iml" filepath="$PROJECT_DIR$/financial-app/financial-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/java-completo.iml" filepath="$PROJECT_DIR$/.idea/java-completo.iml" />
       <module fileurl="file://$PROJECT_DIR$/minesweeper-game/minesweeper-game.iml" filepath="$PROJECT_DIR$/minesweeper-game/minesweeper-game.iml" />
       <module fileurl="file://$PROJECT_DIR$/minesweeper-game-swing/minesweeper-game-swing.iml" filepath="$PROJECT_DIR$/minesweeper-game-swing/minesweeper-game-swing.iml" />
