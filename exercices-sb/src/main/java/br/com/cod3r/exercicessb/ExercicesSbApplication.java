@@ -1,4 +1,4 @@
-package br.com.cod3r.exercices_sb;
+package br.com.cod3r.exercicessb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
