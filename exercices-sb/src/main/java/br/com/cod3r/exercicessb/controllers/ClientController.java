@@ -1,6 +1,6 @@
 package br.com.cod3r.exercicessb.controllers;
 
-import br.com.cod3r.exercicessb.models.Client;
+import br.com.cod3r.exercicessb.model.entities.Client;
 import org.springframework.web.bind.annotation.*;
 
 // Tells that this class handles HTTP requests and all methods in it will return JSON responses. This is useful for creating RESTful APIs where the main goal is to expose data to other services or clients such as mobile applications or frontend applications to consume.
