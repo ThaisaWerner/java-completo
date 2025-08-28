@@ -18,4 +18,9 @@ public class ProductController {
          productRepository.save(product);
          return product;
     }
+
+    @GetMapping
+    public Iterable<Product> getProducts() {
+        return productRepository.findAll();
+    }
 }
