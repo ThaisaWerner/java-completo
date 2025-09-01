@@ -1,8 +1,8 @@
 package br.com.cod3r.exercicessb.model.repositories;
 
 import br.com.cod3r.exercicessb.model.entities.Product;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends CrudRepository<Product, Integer> {
+public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 }
