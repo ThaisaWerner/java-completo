@@ -15,7 +15,8 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @PostMapping
+    //Using POST and PUT in the same method
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
     public @ResponseBody Product newProduct(@Valid Product product) {
          productRepository.save(product);
          return product;
@@ -31,9 +32,14 @@ public class ProductController {
         return productRepository.findById(id);
     }
 
-    @PutMapping
-    public Product updateProduct(@Valid Product product) {
-        productRepository.save(product);
-        return product;
+//    @PutMapping
+//    public Product updateProduct(@Valid Product product) {
+//        productRepository.save(product);
+//        return product;
+//    }
+
+    @DeleteMapping(path="/{id}")
+    public void deleteProduct(@PathVariable int id) {
+        productRepository.deleteById(id);
     }
 }
