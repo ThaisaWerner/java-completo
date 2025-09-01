@@ -30,4 +30,10 @@ public class ProductController {
     public Optional<Product> getProductById(@PathVariable int id) {
         return productRepository.findById(id);
     }
+
+    @PutMapping
+    public Product updateProduct(@Valid Product product) {
+        productRepository.save(product);
+        return product;
+    }
 }
