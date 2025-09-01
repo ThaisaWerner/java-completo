@@ -6,6 +6,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -22,5 +24,10 @@ public class ProductController {
     @GetMapping
     public Iterable<Product> getProducts() {
         return productRepository.findAll();
+    }
+
+    @GetMapping(path="/{id}")
+    public Optional<Product> getProductById(@PathVariable int id) {
+        return productRepository.findById(id);
     }
 }
