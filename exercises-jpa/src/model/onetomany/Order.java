@@ -2,6 +2,7 @@ package model.onetomany;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Order {
@@ -12,6 +13,11 @@ public class Order {
 
     @Column(nullable = false)
     private Date date;
+
+    //One order can have many items
+    //Creating a bidirectional relationship
+    @OneToMany(mappedBy = "order")
+    private List<ItemOrdered> items;
 
     public Order() {
         this(new Date());
@@ -29,11 +35,19 @@ public class Order {
         return date;
     }
 
+    public List<ItemOrdered> getItems() {
+        return items;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public void setItems(List<ItemOrdered> items) {
+        this.items = items;
     }
 }
