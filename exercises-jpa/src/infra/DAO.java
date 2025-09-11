@@ -69,6 +69,15 @@ public class DAO<E> {
         return query.getResultList();
      }
 
+     public List<E> consult(String consultName, Object... params) {
+        TypedQuery<E> query = entityManager.createNamedQuery(consultName, classy);
+
+        for(int i = 0; i < params.length; i += 2) {
+            query.setParameter(params[i].toString(), params[i + 1]);
+        }
+        return query.getResultList();
+     }
+
      public void close() {
         entityManager.close();
      }
