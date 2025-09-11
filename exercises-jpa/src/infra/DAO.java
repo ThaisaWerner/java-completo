@@ -78,6 +78,11 @@ public class DAO<E> {
         return query.getResultList();
      }
 
+     public E consultOne(String consultName, Object... params) {
+        List<E> list = this.consult(consultName, params);
+        return list.isEmpty() ? null : list.get(0);
+     }
+
      public void close() {
         entityManager.close();
      }
