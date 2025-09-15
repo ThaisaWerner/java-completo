@@ -19,6 +19,9 @@
         <class>model.manytomany.Uncle</class>
         <class>model.manytomany.Movie</class>
         <class>model.manytomany.Actor</class>
+        <class>model.composition.Address</class>
+        <class>model.composition.Supplier</class>
+        <class>model.composition.Employee</class>
         <!-- <mapping-file>META-INF/consultas.xml</mapping-file> -->
 
         <properties>
