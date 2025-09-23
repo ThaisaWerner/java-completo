@@ -1,0 +1,31 @@
+.content {
+    -fx-background-color: black;
+    -fx-font-family: "SUSE Mono";
+}
+
+.title {
+    -fx-text-fill: #e69ef3;
+    -fx-font-size: 28px;
+}
+
+.number {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+}
+
+.buttons {
+    -fx-background-color: #de9df6;
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-min-width: 60px;
+    -fx-min-height: 60px;
+    -fx-background-radius: 30px;
+}
+
+.green {
+    -fx-text-fill: #aef49b;
+}
+
+.red {
+    -fx-text-fill: #f38b8b;
+}
