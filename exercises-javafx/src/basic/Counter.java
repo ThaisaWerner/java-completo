@@ -74,6 +74,7 @@ public class Counter extends Application {
 
         //Place the scene on the stage
         primaryStage.setScene(primaryScene);
+        primaryStage.setTitle("Counter");
         primaryStage.show();
     }
 
