@@ -31,6 +31,11 @@ public class AppLayout extends Application {
 //        Scene mainScene = new Scene(temp, 800, 600);
 
 //        primaryStage.setScene(mainScene);
+
+        // Testing AnchorPane
+        Scene mainScene = new Scene(new TestAnchorPane(), 800, 600);
+
+        primaryStage.setScene(mainScene);
         primaryStage.setTitle("Layout Managers");
         primaryStage.show();
     }
