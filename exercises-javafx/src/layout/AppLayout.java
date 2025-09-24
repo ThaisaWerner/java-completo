@@ -39,7 +39,10 @@ public class AppLayout extends Application {
 //        Scene mainScene = new Scene(new TestBorderPane(), 800, 600);
 
         // Testing FlowPane
-        Scene mainScene = new Scene(new TestFlowPane(), 800, 600);
+//        Scene mainScene = new Scene(new TestFlowPane(), 800, 600);
+
+        // Testing GridPane
+        Scene mainScene = new Scene(new TestGridPane(), 800, 600);
 
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("Layout Managers");
