@@ -45,7 +45,10 @@ public class AppLayout extends Application {
 //        Scene mainScene = new Scene(new TestGridPane(), 800, 600);
 
         //Testing StackPane
-        Scene mainScene = new Scene(new TestStackPane(), 800, 600);
+//        Scene mainScene = new Scene(new TestStackPane(), 800, 600);
+
+        // Testing TilePane
+        Scene mainScene = new Scene(new TestTilePane(), 800, 600);
 
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("Layout Managers");

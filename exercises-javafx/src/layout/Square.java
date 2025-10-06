@@ -12,13 +12,13 @@ public class Square extends Rectangle {
     private String[] colors = {"#c33c5e", "#39aac6", "#28d79a", "#fb750e", "#6657a8", "#f9060e"};
 
     public Square() {
-        this(100, 100);
+        this(100);
     }
 
-    public Square(int width, int height) {
+    public Square(int size) {
 
-        setWidth(width);
-        setHeight(height);
+        setWidth(size);
+        setHeight(size);
 
         setFill(Color.web(colors[i]));
 
