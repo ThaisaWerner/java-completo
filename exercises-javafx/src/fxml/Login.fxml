@@ -7,24 +7,29 @@
 <?import javafx.scene.control.PasswordField?>
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1"
-    fx:controller="fxml.LoginController">
+    fx:controller="fxml.LoginController"
+    styleClass="login">
 
     <Label text="Welcome"
-        GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
+           styleClass="login-title"
+           GridPane.columnIndex="0" GridPane.rowIndex="0"></Label>
 
     <Label text="E-mail"
+           styleClass="login-form-label"
            GridPane.columnIndex="0" GridPane.rowIndex="1"></Label>
     <TextField fx:id="emailField"
             GridPane.columnIndex="1" GridPane.rowIndex="1">
     </TextField>
 
     <Label text="Password: "
+           styleClass="login-form-label"
            GridPane.columnIndex="0" GridPane.rowIndex="2"></Label>
     <PasswordField fx:id="passwordField"
             GridPane.columnIndex="1" GridPane.rowIndex="2">
     </PasswordField>
 
     <Button text="Login"
+            styleClass="login-form-bottom"
             GridPane.columnIndex="0" GridPane.rowIndex="3"
             onAction="#login">
     </Button>
